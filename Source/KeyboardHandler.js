@@ -1,12 +1,12 @@
-pc.script.create("Keyboard_Handler", function (app) {
+pc.script.create("keyboard_handler", function (app) {
 
-	var KeyboardHandler = function (entity) {
-		this.entity = entity;
-	}
-	
-	KeyboardHandler.prototype = {
-		initialize: function () {
-			// Use on() to listen for events on the keyboard device.
+    var KeyboardHandler = function (entity) {
+        this.entity = entity;
+    };
+
+    KeyboardHandler.prototype = {
+        initialize: function () {
+            // Use on() to listen for events on the keyboard device.
             // Arguments are:
             // 1) The event name to listen for
             // 2) The callback function to call when the event fires
@@ -16,9 +16,9 @@ pc.script.create("Keyboard_Handler", function (app) {
 
             this.redMaterial = app.assets.find("Red", pc.asset.ASSET_MATERIAL);
             this.whiteMaterial = app.assets.find("White", pc.asset.ASSET_MATERIAL);
-		},
-		
-		update: function (dt) {
+        },
+
+        update: function (dt) {
             /*
              * Notice in the demo that pressing and holding the arrow keys doesn't
              * make the block spin. wasPressed() is used to detect a
@@ -45,7 +45,8 @@ pc.script.create("Keyboard_Handler", function (app) {
             // Update the spinning cube
             this.entity.rotateLocal(0, angle, 0);
         },
-		/*
+
+        /*
         * Event handler called when key is pressed
         */
         onKeyDown: function (event) {
@@ -68,7 +69,7 @@ pc.script.create("Keyboard_Handler", function (app) {
                 this.entity.model.materialAsset = this.whiteMaterial;
             }
         },
-	};
+    };
 
     return KeyboardHandler;
 });
